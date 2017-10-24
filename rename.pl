@@ -2,25 +2,37 @@
 use strict;
 use warnings;
 
-my $filename = "/";
+my $name = 0;
 
-#convert non-ASCII characters
-my @cond = ([A-Z],[a,z],[0-9])
+print "Path to the files: "; #get user input
+chomp($name = <STDIN>);
+print $name, "\n";
+##convert non-ASCII characters
+#my @cond = ([A-Z],[a,z],[0-9])
 
-[^[:ascii:]] #matches a single non-ascii char
+$name = lc($name); #convert to lowercase
 
-if $filename !~ /[a-z],[0-9]/i;{ #var doesn't match regex
-    $a =~ s/\W//g; #matches any non-word char and deletes it
-}
-#a eq A
+#[^[:ascii:]] #matches a single non-ascii char
 
-#upper to lower case
-foreach (@filename) {
-    print "hello world\n";
-}
+print $name, "\n";
 
-$a =~ s/[A-Z]/[a-z]/g;
-$a =~ s/\s//g;
+#if $filename !~ /[a-z],[0-9]/i;{ #var doesn't match regex
+    #$a =~ s/\W//g; #matches any non-word char and deletes it
+#}
+##a eq A
+
+#foreach $item ( @list) {
+    #print $item, "\n";
+#}
+
+
+##upper to lower case
+#foreach (@filename) {
+    #print "hello world\n";
+#}
+
+#$a =~ s/[A-Z]/[a-z]/g;
+#$a =~ s/\s//g;
 
 #Boolean logic
 #&&  and
