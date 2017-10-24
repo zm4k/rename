@@ -1,18 +1,19 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-
+#
 my $name = 0;
-
+#
 print "Path to the files: "; #get user input
 chomp($name = <STDIN>);
 print $name, "\n";
 ##convert non-ASCII characters
 #my @cond = ([A-Z],[a,z],[0-9])
-
 $name = lc($name); #convert to lowercase
+print $name, "\n";
 
 #[^[:ascii:]] #matches a single non-ascii char
+$name =~ s/[^[:ascii:]]/0/g;
 
 print $name, "\n";
 
@@ -26,7 +27,6 @@ print $name, "\n";
 #}
 
 
-##upper to lower case
 #foreach (@filename) {
     #print "hello world\n";
 #}
