@@ -2,18 +2,22 @@
 use strict;
 use warnings;
 #
-my $name = 0;
-#
-print "Path to the files: "; #get user input
-chomp($name = <STDIN>);
+my $pwd = `pwd`;
+print "Going to rename $pwd including subfolders\n"; #warning
+print "Proceed? Y/N: "; #get user confirmation
+chomp(my $name = <STDIN>);
 print $name, "\n";
 ##convert non-ASCII characters
 #my @cond = ([A-Z],[a,z],[0-9])
 $name = lc($name); #convert to lowercase
 print $name, "\n";
+print `pwd`;
+print `find`;
 
 #[^[:ascii:]] #matches a single non-ascii char
-$name =~ s/[^[:ascii:]]/0/g;
+#$name =~ s/[^[:ascii:]]/0/g;
+$name =~ s/\W/-/g;
+
 
 print $name, "\n";
 
