@@ -2,24 +2,38 @@
 use strict;
 use warnings;
 #
+#get user confirmation
 my $pwd = `pwd`;
-print "Going to rename $pwd including subfolders\n"; #warning
+print "Going to rename $pwd, including subfolders\n"; #warning
 print "Proceed? Y/N: "; #get user confirmation
-chomp(my $name = <STDIN>);
-print $name, "\n";
+chomp(my $resp = <STDIN>);
+$resp = lc($resp); #convert to lowercase
+#
+if ($resp eq "yes" or $resp eq "y"){
+    print $resp, "\n";
+}
+else{
+    print "Goodbye. \n";
+}
+
+
+
+
+
+
+
 ##convert non-ASCII characters
 #my @cond = ([A-Z],[a,z],[0-9])
-$name = lc($name); #convert to lowercase
-print $name, "\n";
-print `pwd`;
-print `find`;
+#print $name, "\n";
+#print `pwd`;
+#print `find`;
 
 #[^[:ascii:]] #matches a single non-ascii char
 #$name =~ s/[^[:ascii:]]/0/g;
-$name =~ s/\W/-/g;
+#$name =~ s/\W/-/g;
 
 
-print $name, "\n";
+#print $name, "\n";
 
 #if $filename !~ /[a-z],[0-9]/i;{ #var doesn't match regex
     #$a =~ s/\W//g; #matches any non-word char and deletes it
