@@ -19,16 +19,16 @@ use File::Copy;
 #}
 #read pwd into array variable and loop through
 my @fnd = `find`;
+#exclude dotfiles
 #if ($fnd[6] =~ /^./) {
   #print "there are dotfiles in $fnd[6]\n";
   #} 
 
 
-foreach my $fnd ( @fnd) {
-    $fnd = lc($fnd); #convert to lowercase
-    print $fnd, "\n";
+foreach my $item ( @fnd) {
+    $item = lc($item); #convert to lowercase
+    #print $fnd, "\n";
 }
-#exclude dotfiles
 print $fnd[6], "\n"; #prints entry XX
 #move("123","abc");
 
