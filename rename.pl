@@ -1,38 +1,51 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
+use locale;
+use File::Copy;
 #
-#get user confirmation
-my $pwd = `pwd`;
-print "Going to rename $pwd, including subfolders\n"; #warning
-print "Proceed? Y/N: "; #get user confirmation
-chomp(my $resp = <STDIN>);
-$resp = lc($resp); #convert to lowercase
-#
-if ($resp eq "yes" or $resp eq "y"){
-    print $resp, "\n";
-}
-else{
-    print "Goodbye. \n";
-}
+##get user confirmation
+#my $pwd = `pwd`;
+#print "Current directory is $pwd"; #warning msg
+#print "Proceed renaming? Y/N: "; #get user confirmation
+#chomp(my $resp = <STDIN>);
+#$resp = lc($resp); #convert to lowercase
+##
+#if($resp eq "yes" or $resp eq "y"){
+    #print $resp, "\n";
+#}
+#else{
+    #print "Exiting, Goodbye! \n";
+#}
+#read pwd into array variable and loop through
+my @fnd = `find`;
+if ($fnd[6] =~ /^./) {
+  print "there are dotfiles in $fnd[6]\n";
+  } 
 
 
+#foreach my $item ( @fnd) {
+    #$item ^. 
+    #$item = lc($item); #convert to lowercase
+    #print $item, "\n";
+#}
+#exclude dotfiles
+print $fnd[6], "\n"; #prints entry XX
+#move("123","abc");
 
 
-
-
-
+#print @fnd; #entries in array
 ##convert non-ASCII characters
 #my @cond = ([A-Z],[a,z],[0-9])
-#print $name, "\n";
-#print `pwd`;
-#print `find`;
 
 #[^[:ascii:]] #matches a single non-ascii char
 #$name =~ s/[^[:ascii:]]/0/g;
 #$name =~ s/\W/-/g;
+#push(@fnd, "my path");
 
 
+#system("ls -Alt");
+#@fnd = lc(@fnd); #convert to lowercase
 #print $name, "\n";
 
 #if $filename !~ /[a-z],[0-9]/i;{ #var doesn't match regex
@@ -51,13 +64,6 @@ else{
 
 #$a =~ s/[A-Z]/[a-z]/g;
 #$a =~ s/\s//g;
-
-#Boolean logic
-#&&  and
-#||  or
-##!   not
-
-#########
 
 ##!/usr/bin/fish
 ##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -78,5 +84,3 @@ else{
       #echo "$directory/$oldfilename ---> $directory/$newfilename"
     #end
 #end
-
-
