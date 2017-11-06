@@ -21,6 +21,13 @@ use File::Copy;
 my @fnd = `find`;
 #exclude dotfiles
 #if ($fnd[6] =~ /^./) {
+
+#for my $index (reverse 0..$#array) {
+    #if ( $array[$index] =~ /dog/ ) {
+        #splice(@array, $index, 1, ());
+    #}
+#}
+
   #print "there are dotfiles in $fnd[6]\n";
   #} 
 
